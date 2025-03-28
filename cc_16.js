@@ -21,3 +21,20 @@ function fetchProductsThen(){
 }
 
 fetchProductsThen(); 
+
+//Task 3 
+async function fetchProductsAsync() {
+    try { //Using try to get products
+        const response = await fetch(BASE_URL)
+
+        if(!response.ok){
+            throw new Error(`Error: ${response.status}`)
+    }
+    return await response.json();
+    displayProducts(products) //Helper function to be made in task 4
+} catch (error) { //Catches everything else
+    console.error('API Fetch Failed:', error.message);
+    handleError(error); //Function to be made task 5
+    throw error
+}
+}   
