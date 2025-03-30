@@ -30,7 +30,7 @@ async function fetchProductsAsync() {
         if(!response.ok){
             throw new Error(`Error: ${response.status}`)
     }
-    return await response.json();
+    const products = await response.json();
     displayProducts(products) //Helper function to be made in task 4
 } catch (error) { //Catches everything else
     console.error('API Fetch Failed:', error.message);
@@ -38,3 +38,16 @@ async function fetchProductsAsync() {
     throw error
 }
 }   
+
+//Task 4
+function displayProducts(products) {
+    const container = document.getElementById('product-container')
+    products.slice(0,5).forEach (product => { //Takes first five products
+    const div = document.createElement('div');
+    div.innerHTML = //Takes name, price and image
+    `<h3>${product.fields.name}</h3>
+    <p>$${product.fields.price}</p>
+    <img src=${product.fields.image}>`
+    container.appendChild(div);
+    })
+}
