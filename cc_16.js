@@ -20,7 +20,6 @@ function fetchProductsThen(){
     })
 }
 
-fetchProductsThen(); 
 
 //Task 3 
 async function fetchProductsAsync() {
@@ -58,3 +57,7 @@ function handleError(error){
         console.log(`An error occured: ${error.message}`)
     }
 }
+
+//Task 6 
+fetchProductsThen();
+fetchProductsAsync();
