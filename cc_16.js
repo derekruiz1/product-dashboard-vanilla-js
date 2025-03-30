@@ -51,3 +51,10 @@ function displayProducts(products) {
     container.appendChild(div);
     })
 }
+
+//Task 5 
+function handleError(error){
+    if (error) { 
+        console.log(`An error occured: ${error.message}`)
+    }
+}
